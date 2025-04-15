@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Couleur transparente pour l'icône de l'application -->
+    <color name="ic_launcher_background">#00000000</color> <!-- Transparent -->
+</resources>

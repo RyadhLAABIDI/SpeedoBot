@@ -10,15 +10,19 @@ import 'package:speedobot/controllers/TranslationController.dart';
 import 'package:speedobot/screens/screens_auth/login.dart';
 import 'package:speedobot/screens/screens_home/home.dart';
 
+// Définir le RouteObserver global
+final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialisation des contrôleurs
   final authController = Get.put(AuthController());
-  Get.put(ThemeController());
-  
-  // Initialisation du contrôleur de langue
+  final themeController = Get.put(ThemeController());
   final languageController = Get.put(LanguageController());
+
+  // Attendre l'initialisation des préférences de thème et de langue
+  await themeController.loadThemeFromPrefs(); // Nouvelle méthode pour attendre le chargement
   await languageController.initializeLanguage();
 
   // Vérifier l'état de l'utilisateur
@@ -50,32 +54,33 @@ class MegabotApp extends StatelessWidget {
     final languageController = Get.find<LanguageController>();
 
     return Obx(() => GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Megabot',
-      theme: ThemeData(
-        fontFamily: 'Outfit',
-        primarySwatch: Colors.blue,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.black),
-        ),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF02111a),
-        primaryColor: const Color(0xFF02111a),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF02111a),
-        ),
-      ),
-      themeMode: themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
-      translations: AppTranslations(),
-      locale: languageController.selectedLocale.value,
-      fallbackLocale: const Locale('en', 'US'),
-      home: screen,
-      onGenerateRoute: AppRoutes.generateRoute,
-    ));
+          debugShowCheckedModeBanner: false,
+          title: 'Megabot',
+          theme: ThemeData(
+            fontFamily: 'Outfit',
+            primarySwatch: Colors.blue,
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+            useMaterial3: true,
+            scaffoldBackgroundColor: Colors.white,
+            textTheme: const TextTheme(
+              bodyLarge: TextStyle(color: Colors.black),
+            ),
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            scaffoldBackgroundColor: const Color(0xFF02111a),
+            primaryColor: const Color(0xFF02111a),
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Color(0xFF02111a),
+            ),
+          ),
+          themeMode: themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
+          translations: AppTranslations(),
+          locale: languageController.selectedLocale.value,
+          fallbackLocale: const Locale('en', 'US'),
+          home: screen,
+          onGenerateRoute: AppRoutes.generateRoute,
+          navigatorObservers: [routeObserver], // Ajouter le RouteObserver
+        ));
   }
 }

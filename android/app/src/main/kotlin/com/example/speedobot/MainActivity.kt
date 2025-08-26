@@ -1,4 +1,4 @@
-package com.example.speedobot
+package elite.speedobot
 
 import io.flutter.embedding.android.FlutterActivity
 

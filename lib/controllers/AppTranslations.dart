@@ -5,6 +5,20 @@ class AppTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
     "fr_FR": {
+
+      "generation_cancelled": "Génération annulée",
+
+
+      
+  "invalid_credentials": "Identifiants incorrects. Veuillez vérifier votre e-mail et mot de passe.",
+  "email_already_used": "Cette adresse e-mail est déjà utilisée. Essayez une autre.",
+  "server_unavailable": "Le serveur est temporairement indisponible. Veuillez réessayer plus tard.",
+  "unknown_error": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+  "redirect_detected": "Erreur de connexion au serveur. Veuillez réessayer.",
+
+
+
+     
       "compose_write_email_question": "Rédiger un e-mail ?",
       "settings": "Paramètres",
     "customize_appearance": "Personnalisez l'apparence de l'application selon vos préférences visuelles et vos conditions d'éclairage. Le mode sombre réduit la fatigue oculaire dans les environnements peu éclairés.",
@@ -197,7 +211,7 @@ class AppTranslations extends Translations {
       "diet_preferences_hint": "Entrez vos préférences (par exemple, végétarien)",
       "recipe_objective_label": "Objectif de la recette",
       "recipe_prompt_hint": "Décrivez ce que vous souhaitez générer...",
-      "generate_button": "Générer la recette",
+      "generate_button": "Générer",
       "recipe_response": "Réponse de la recette",
       "male": "Homme",
   "female": "Femme",
@@ -222,6 +236,188 @@ class AppTranslations extends Translations {
     
     "translated_text_will_appear_here": "Le texte traduit apparaîtra ici...",
 
+          'forgot_password': 'Mot de passe oublié ?',
+          'please_enter_name': 'Veuillez entrer votre nom',
+          'please_enter_email': 'Veuillez entrer votre email',
+          'invalid_email': 'Email invalide',
+          'please_enter_password': 'Veuillez entrer votre mot de passe',
+          'password_too_short': 'Le mot de passe doit contenir au moins 6 caractères',
+          'please_confirm_password': 'Veuillez confirmer votre mot de passe',
+          'passwords_do_not_match': 'Les mots de passe ne correspondent pas',
+          'verify_email': 'Vérifier l\'email',
+          'enter_verification_code': 'Entrez le code de vérification envoyé à',
+          'verification_code': 'Code de vérification',
+          'verify_now': 'Vérifier maintenant',
+          'please_enter_code': 'Veuillez entrer le code',
+          'invalid_code_format': 'Le code doit être un nombre à 6 chiffres',
+          'enter_email_reset': 'Entrez votre email pour recevoir un code de réinitialisation',
+          'send_reset_code': 'Envoyer le code',
+          'back_to_login': 'Retour à la connexion',
+          'verify_reset_code': 'Vérifier le code de réinitialisation',
+          'enter_reset_code': 'Entrez le code de réinitialisation envoyé à',
+          'reset_password': 'Réinitialiser le mot de passe',
+          'enter_new_password': 'Entrez votre nouveau mot de passe',
+          'reset_now': 'Réinitialiser maintenant',
+
+
+          ////////////////// NEW////////////////////////
+            'generate_image_title': 'Générer une image',
+          'prompt_hint': 'Entrez une description pour l\'image...',
+          'hide_preview': 'Masquer l\'aperçu',
+          'empty_prompt_error': 'Veuillez entrer une description pour générer une image.',
+          'image_generation_failed': 'Échec de la génération de l\'image. Veuillez réessayer.',
+          'generic_error': 'Une erreur s\'est produite. Veuillez réessayer plus tard.',
+
+
+          'generate_ai_video_title': 'Générer une vidéo AI',
+          'enter_exercise_name': 'Entrez une description pour la vidéo...',
+          
+          'generated_video_preview': 'Aperçu de la vidéo générée',
+          
+          'prompt_empty_label': 'Veuillez entrer une description pour générer une vidéo.',
+          'video_init_failed_label': 'Échec de l\'initialisation de la vidéo. Veuillez réessayer.',
+          'video_generation_failed_label': 'Échec de la génération de la vidéo. Veuillez réessayer.',
+
+
+          'speech_to_audio_title': 'Texte en audio',
+          'speech_text_hint': 'Entrez le texte à convertir en audio...',
+          'select_language_hint': 'Sélectionner une langue',
+          'select_speaker_hint': 'Sélectionner un locuteur',
+          'speed_label': 'Vitesse :',
+          'generate_audio_button': 'Générer l\'audio',
+          'generated_audio_preview': 'Aperçu de l\'audio généré',
+          
+          'load_languages_speakers_error': 'Échec du chargement des langues et locuteurs. Veuillez réessayer.',
+          'empty_text_error': 'Veuillez entrer du texte pour générer l\'audio.',
+          'select_language_speaker_error': 'Veuillez sélectionner une langue et un locuteur.',
+          'audio_generation_failed': 'Échec de la génération de l\'audio. Veuillez réessayer.',
+
+
+
+           'generate_from_image_title': 'Générer une vidéo à partir d\'une image et d\'un audio',
+          
+          'select_image_placeholder': 'Aucune image sélectionnée',
+          'hide_image_label': 'Masquer l\'image',
+          'select_audio_placeholder': 'Sélectionner un audio',
+          
+          'hide_preview_label': 'Masquer l\'aperçu',
+          'select_image_audio_error': 'Veuillez sélectionner à la fois une image et un fichier audio.',
+          
+          'video_downloaded_label': 'Vidéo téléchargée avec succès.',
+          'gallery_save_failed_label': 'Échec de l\'enregistrement de la vidéo dans la galerie.',
+          'download_failed_label': 'Échec du téléchargement de la vidéo. Veuillez réessayer.',
+          'Audio files': 'Fichiers audio',
+
+          'voice_cloning_title': 'Clonage de voix',
+          'enter_prompt_label': 'Entrez le texte pour le clonage de voix...',
+          
+          
+          'cloned_voice_result': 'Résultat de la voix clonée',
+          'play_button': 'Lire',
+          
+          'please_enter_prompt_and_audio': 'Veuillez entrer du texte et sélectionner un fichier audio.',
+          'voice_cloning_failed': 'Échec du clonage de la voix. Veuillez réessayer.',
+          
+          'English': 'Anglais',
+          'French': 'Français',
+          'Arabic': 'Arabe',
+
+           'voice_to_voice_title': 'Voix à voix',
+          'presser_pour_enregistrer': 'Appuyez pour enregistrer',
+          'failed_to_fetch_video_avatars': 'Échec de la récupération des avatars vidéo.',
+          'impossible_de_charger_la_video': 'Impossible de charger la vidéo.',
+          'permission_microphone_refusee': 'Permission du microphone refusée.',
+          'echec_initialisation_enregistreur': 'Échec de l\'initialisation de l\'enregistreur.',
+          'enregistrement_en_cours': 'Enregistrement en cours...',
+          'echec_enregistrement': 'Échec du démarrage de l\'enregistrement.',
+          'enregistrement_termine': 'Enregistrement terminé.',
+          'fichier_enregistrement_non_trouve': 'Fichier d\'enregistrement non trouvé.',
+          'echec_arret_enregistrement': 'Échec de l\'arrêt de l\'enregistrement.',
+          'aucun_enregistrement_disponible': 'Aucun enregistrement disponible.',
+          'echec_lecture_enregistrement': 'Échec de la lecture de l\'enregistrement.',
+          'lecture_enregistrement': 'Lecture de l\'enregistrement...',
+          'jouer_enregistrement': 'Lire l\'enregistrement',
+          'arreter_enregistrement': 'Arrêter l\'enregistrement',
+          'supprimer_enregistrement': 'Supprimer l\'enregistrement',
+          'traiter_requete': 'Traiter la requête',
+          'reponse_prete': 'Réponse prête',
+          'reponse_recue': 'Réponse reçue avec succès.',
+          'echec_generation_reponse': 'Échec de la génération de la réponse.',
+          'echec_suppression_reponse': 'Échec de la suppression de la réponse.',
+          'echec_suppression_enregistrement': 'Échec de la suppression de l\'enregistrement.',
+          'selectionner_avatar': 'Sélectionner un avatar',
+          'aucun_avatar_disponible': 'Aucun avatar disponible.',
+          'lecture_reponse': 'Lecture de la réponse...',
+          'jouer_reponse': 'Lire la réponse',
+          'arreter_reponse': 'Arrêter la réponse',
+          'supprimer_reponse': 'Supprimer la réponse',
+          'video_indisponible': 'Vidéo indisponible.',
+
+
+          'enhance_image_title': 'Améliorer l\'image',
+          'select_image_label': 'Sélectionner une image',
+          
+          'enhance_button': 'Améliorer',
+          'error_loading_image': 'Erreur lors du chargement de l\'image améliorée',
+          
+          'image_downloaded_label': 'Image téléchargée avec succès.',
+          'enhancement_failed_label': 'Échec de l\'amélioration de l\'image. Veuillez réessayer.',
+          'no_image_selected_label': 'Veuillez sélectionner une image à améliorer.',
+
+          
+  "image_permission_denied": "Permission d'accès aux images refusée",
+  "image_selection_failed": "Échec de la sélection de l'image",
+  "permission_required": "Permission requise",
+  "please_enable_storage_permission": "Veuillez activer les permissions de stockage dans les paramètres de l'application",
+  "cancel": "Annuler",
+
+  
+  "video_generation": "Génération de vidéo",
+  "speech_to_audio": "Discours en audio",
+  "video_generated_with_image": "Vidéo générée avec l'image",
+  "voice_cloning": "Clonage vocal",
+  "voice_query": "Recherche vocale",
+  "image_enhancer": "Amélioration d'image",
+
+  "no_video_selected": "Aucune vidéo sélectionnée",
+  "video_processing_failed": "Échec du traitement de la vidéo",
+  "network_error": "Erreur réseau",
+  "remove_background_title": "Supprimer l'arrière-plan",
+  "select_video": "Sélectionner une vidéo",
+  "process_button": "Traiter",
+
+  "remove_background": "Enlever fond",
+
+  
+  "permission_denied": "Permission de stockage refusée",
+  "download_failed": "Échec du téléchargement de l'image",
+  "image_downloaded": "Image téléchargée avec succès",
+
+  "video_generation_success": "Vidéo générée avec succès",
+
+  "audio_generation_success": "Audio généré avec succès",
+
+
+  
+    'voice_cloning_success': 'Voice cloning successful',
+    'server_pressure_error': 'Server is under a lot of pressure, please try again!',
+    'cancel_button': 'Cancel',
+    
+    'selected_audio_name': 'Selected audio: {name}',
+
+  
+
+
+  
+
+
+
+  
+  
+
+
+          
+
     },
 
 
@@ -229,6 +425,21 @@ class AppTranslations extends Translations {
 
 
     "ar_AR": {
+
+      "generation_cancelled": "تم إلغاء التوليد",
+
+      "video_generation_success": "تم إنشاء الفيديو بنجاح",
+      "audio_generation_success": "تم إنشاء الصوت بنجاح",
+
+      
+  "invalid_credentials": "بيانات تسجيل الدخول غير صحيحة. يرجى التحقق من البريد الإلكتروني وكلمة المرور.",
+  "email_already_used": "هذا البريد الإلكتروني مستخدم بالفعل. جرب بريدًا آخر.",
+  "server_unavailable": "الخادم غير متاح مؤقتًا. يرجى المحاولة لاحقًا.",
+  "unknown_error": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+  "redirect_detected": "خطأ في الاتصال بالخادم. يرجى المحاولة مرة أخرى.",
+
+
+     
       "compose_write_email_question": "كتابة بريد إلكتروني؟",
       "choose_your_domain": "اختر مجالك",
   "click_to_confirm": "انقر للتأكيد",
@@ -253,7 +464,7 @@ class AppTranslations extends Translations {
       "diet_preferences_hint": "أدخل تفضيلاتك (مثل، نباتي)",
       "recipe_objective_label": "هدف الوصفة",
       "recipe_prompt_hint": "وصف ما تريد توليده...",
-      "generate_button": "توليد الوصفة",
+      "generate_button": "توليد",
       "recipe_response": "استجابة الوصفة",
       "enter_write_email_content": "أدخل المحتوى للبريد الإلكتروني",
 
@@ -444,12 +655,212 @@ class AppTranslations extends Translations {
     "dark_mode_activated": "الوضع الداكن مفعل",
     "light_mode_activated": "الوضع الفاتح مفعل",
 
+  'forgot_password': 'هل نسيت كلمة المرور؟',
+  'please_enter_name': 'الرجاء إدخال اسمك',
+  'please_enter_email': 'الرجاء إدخال بريدك الإلكتروني',
+  'invalid_email': 'بريد إلكتروني غير صالح',
+  'please_enter_password': 'الرجاء إدخال كلمة المرور',
+  'password_too_short': 'يجب أن تتكون كلمة المرور من 6 أحرف على الأقل',
+  'please_confirm_password': 'الرجاء تأكيد كلمة المرور',
+  'passwords_do_not_match': 'كلمتا المرور غير متطابقتين',
+  'verify_email': 'تأكيد البريد الإلكتروني',
+  'enter_verification_code': 'أدخل رمز التحقق المرسل إلى',
+  'verification_code': 'رمز التحقق',
+  'verify_now': 'التحقق الآن',
+  'please_enter_code': 'الرجاء إدخال الرمز',
+  'invalid_code_format': 'يجب أن يكون الرمز رقمًا مكونًا من 6 أرقام',
+  'enter_email_reset': 'أدخل بريدك الإلكتروني لتلقي رمز إعادة التعيين',
+  'send_reset_code': 'إرسال رمز إعادة التعيين',
+  'back_to_login': 'العودة إلى تسجيل الدخول',
+  'verify_reset_code': 'تأكيد رمز إعادة التعيين',
+  'enter_reset_code': 'أدخل رمز إعادة التعيين المرسل إلى',
+  'reset_password': 'إعادة تعيين كلمة المرور',
+  'enter_new_password': 'أدخل كلمة المرور الجديدة',
+  'reset_now': 'إعادة التعيين الآن',
+
+
+  ////////////////////   NEW ////////////////
+          'generate_image_title': 'إنشاء صورة',
+          'prompt_hint': 'أدخل وصفًا للصورة...',
+          'hide_preview': 'إخفاء المعاينة',
+          'empty_prompt_error': 'يرجى إدخال وصف لإنشاء صورة.',
+          'image_generation_failed': 'فشل في إنشاء الصورة. يرجى المحاولة مرة أخرى.',
+          'generic_error': 'حدث خطأ. يرجى المحاولة مرة أخرى لاحقًا.',
+
+
+          'generate_ai_video_title': 'إنشاء فيديو ذكي',
+          'enter_exercise_name': 'أدخل وصفًا للفيديو...',
+          
+          'generated_video_preview': 'معاينة الفيديو المُنشأ',
+          
+          'prompt_empty_label': 'يرجى إدخال وصف لإنشاء فيديو.',
+          'video_init_failed_label': 'فشل في تهيئة الفيديو. يرجى المحاولة مرة أخرى.',
+          'video_generation_failed_label': 'فشل في إنشاء الفيديو. يرجى المحاولة مرة أخرى.',
+
+
+
+          'speech_to_audio_title': 'تحويل النص إلى صوت',
+          'speech_text_hint': 'أدخل النص لتحويله إلى صوت...',
+          'select_language_hint': 'اختر لغة',
+          'select_speaker_hint': 'اختر متحدثًا',
+          'speed_label': 'السرعة:',
+          'generate_audio_button': 'إنشاء الصوت',
+          'generated_audio_preview': 'معاينة الصوت المُنشأ',
+          
+          'load_languages_speakers_error': 'فشل في تحميل اللغات والمتحدثين. يرجى المحاولة مرة أخرى.',
+          'empty_text_error': 'يرجى إدخال نص لإنشاء الصوت.',
+          'select_language_speaker_error': 'يرجى اختيار لغة ومتحدث.',
+          'audio_generation_failed': 'فشل في إنشاء الصوت. يرجى المحاولة مرة أخرى.',
+
+
+
+          'generate_from_image_title': 'إنشاء فيديو من صورة وصوت',
+          
+          'select_image_placeholder': 'لم يتم اختيار صورة',
+          'hide_image_label': 'إخفاء الصورة',
+          'select_audio_placeholder': 'اختر صوتًا',
+          
+          
+          'hide_preview_label': 'إخفاء المعاينة',
+          'select_image_audio_error': 'يرجى اختيار صورة وملف صوتي.',
+          
+          'video_downloaded_label': 'تم تحميل الفيديو بنجاح.',
+          'gallery_save_failed_label': 'فشل في حفظ الفيديو في المعرض.',
+          'download_failed_label': 'فشل في تحميل الفيديو. يرجى المحاولة مرة أخرى.',
+          'Audio files': 'ملفات صوتية',
+
+
+          'voice_cloning_title': 'استنساخ الصوت',
+          'enter_prompt_label': 'أدخل النص لاستنساخ الصوت...',
+          
+          'cloned_voice_result': 'نتيجة الصوت المستنسخ',
+          'play_button': 'تشغيل',
+          
+          'please_enter_prompt_and_audio': 'يرجى إدخال نص واختيار ملف صوتي.',
+          'voice_cloning_failed': 'فشل في استنساخ الصوت. يرجى المحاولة مرة أخرى.',
+          'English': 'الإنجليزية',
+          'French': 'الفرنسية',
+          'Arabic': 'العربية',
+
+
+
+          'voice_to_voice_title': 'من صوت إلى صوت',
+          'presser_pour_enregistrer': 'اضغط للتسجيل',
+          'failed_to_fetch_video_avatars': 'فشل في جلب الصور الرمزية للفيديو.',
+          'impossible_de_charger_la_video': 'تعذر تحميل الفيديو.',
+          'permission_microphone_refusee': 'تم رفض إذن الميكروفون.',
+          'echec_initialisation_enregistreur': 'فشل في تهيئة المسجل.',
+          'enregistrement_en_cours': 'جارٍ التسجيل...',
+          'echec_enregistrement': 'فشل في بدء التسجيل.',
+          'enregistrement_termine': 'تم التسجيل.',
+          'fichier_enregistrement_non_trouve': 'لم يتم العثور على ملف التسجيل.',
+          'echec_arret_enregistrement': 'فشل في إيقاف التسجيل.',
+          'aucun_enregistrement_disponible': 'لا يوجد تسجيل متاح.',
+          'echec_lecture_enregistrement': 'فشل في تشغيل التسجيل.',
+          'lecture_enregistrement': 'جارٍ تشغيل التسجيل...',
+          'jouer_enregistrement': 'تشغيل التسجيل',
+          'arreter_enregistrement': 'إيقاف التسجيل',
+          'supprimer_enregistrement': 'حذف التسجيل',
+          'traiter_requete': 'معالجة الطلب',
+          'reponse_prete': 'الرد جاهز',
+          'reponse_recue': 'تم استلام الرد بنجاح.',
+          'echec_generation_reponse': 'فشل في إنشاء الرد.',
+          'echec_suppression_reponse': 'فشل في حذف الرد.',
+          'echec_suppression_enregistrement': 'فشل في حذف التسجيل.',
+          'selectionner_avatar': 'اختر الصورة الرمزية',
+          'aucun_avatar_disponible': 'لا توجد صور رمزية متاحة.',
+          'lecture_reponse': 'جارٍ تشغيل الرد...',
+          'jouer_reponse': 'تشغيل الرد',
+          'arreter_reponse': 'إيقاف الرد',
+          'supprimer_reponse': 'حذف الرد',
+          'video_indisponible': 'الفيديو غير متاح.',
+
+
+
+          'enhance_image_title': 'تحسين الصورة',
+          'select_image_label': 'اختر صورة',
+          
+          'enhance_button': 'تحسين',
+          'error_loading_image': 'خطأ في تحميل الصورة المحسنة',
+          
+          'image_downloaded_label': 'تم تحميل الصورة بنجاح.',
+          
+          'enhancement_failed_label': 'فشل في تحسين الصورة. يرجى المحاولة مرة أخرى.',
+          'no_image_selected_label': 'يرجى اختيار صورة لتحسينها.',
+
+
+          "image_permission_denied": "تم رفض إذن الوصول إلى الصور",
+  "image_selection_failed": "فشل في تحديد الصورة",
+  "permission_required": "الإذن مطلوب",
+  "please_enable_storage_permission": "يرجى تفعيل أذونات التخزين من إعدادات التطبيق",
+  "cancel": "إلغاء",
+
+
+  
+  "video_generation": "توليد فيديو",
+  "speech_to_audio": "تحويل الكلام إلى صوت",
+  "video_generated_with_image": "تم إنشاء فيديو باستخدام الصورة",
+  "voice_cloning": "استنساخ الصوت",
+  "voice_query": "استعلام صوتي",
+  "image_enhancer": "تحسين الصورة",
+  "no_video_selected": "لم يتم تحديد فيديو",
+  "video_processing_failed": "فشل في معالجة الفيديو",
+  "network_error": "خطأ في الشبكة",
+  "remove_background_title": "إزالة الخلفية",
+  "select_video": "اختر فيديو",
+  "process_button": "معالجة",
+
+  "remove_background": "إزالة الخلفية",
+    
+    'voice_cloning_success': 'نجح استنساخ الصوت',
+    'server_pressure_error': 'الخادم تحت ضغط كبير، يرجى المحاولة مرة أخرى!',
+    'cancel_button': 'إلغاء',
+   
+    'selected_audio_name': 'الصوت المحدد: {name}',
+
+  
+  
+
+
+
+  
+          
+
   
     },
 
 
 
     "en_US": {
+
+
+      
+
+
+      "generation_cancelled": "Generation cancelled",
+
+      "video_generation_success": "Video generated successfully",
+
+      "audio_generation_success": "Audio generated successfully",
+
+
+      
+  "permission_denied": "Storage permission denied",
+  "download_failed": "Failed to download image",
+  "image_downloaded": "Image downloaded successfully",
+
+
+
+      
+  "invalid_credentials": "Invalid credentials. Please check your email and password.",
+  "email_already_used": "This email address is already in use. Please try another one.",
+  "server_unavailable": "The server is temporarily unavailable. Please try again later.",
+  "unknown_error": "An unexpected error occurred. Please try again.",
+  "redirect_detected": "Server connection error. Please try again.",
+
+
+
+     
        "compose_write_email_question": "Compose an email?",
       "customize_appearance": "Customize the appearance of the app according to your visual preferences and lighting conditions. Dark mode reduces eye strain in low-light environments.",
     "choose_language": "Choose the language of your interface for an optimal user experience. The selection will be immediately applied to the entire app.",
@@ -660,7 +1071,7 @@ class AppTranslations extends Translations {
       "diet_preferences_hint": "Enter your preferences (e.g., vegetarian)",
       "recipe_objective_label": "Recipe Objective",
       "recipe_prompt_hint": "Describe what you want to generate...",
-      "generate_button": "Generate Recipe",
+      "generate_button": "Generate",
       "recipe_response": "Recipe Response",
 
       "male": "Male",
@@ -671,6 +1082,172 @@ class AppTranslations extends Translations {
   "generate_recipe": "Generate Recipe",
   "please_wait_generating_recipe": "Please wait, generating recipe...",
   "generated_recipe_will_appear_here": "Generated recipe will appear here...",
+
+
+          'forgot_password': 'Forgot Password?',
+          'please_enter_name': 'Please enter your name',
+          'please_enter_email': 'Please enter your email',
+          'invalid_email': 'Invalid email',
+          'please_enter_password': 'Please enter your password',
+          'password_too_short': 'Password must be at least 6 characters',
+          'please_confirm_password': 'Please confirm your password',
+          'passwords_do_not_match': 'Passwords do not match',
+          'verify_email': 'Verify Email',
+          'enter_verification_code': 'Enter the verification code sent to',
+          'verification_code': 'Verification Code',
+          'verify_now': 'Verify Now',
+          'please_enter_code': 'Please enter the code',
+          'invalid_code_format': 'Code must be a 6-digit number',
+          'enter_email_reset': 'Enter your email to receive a reset code',
+          'send_reset_code': 'Send Reset Code',
+          'back_to_login': 'Back to Login',
+          'verify_reset_code': 'Verify Reset Code',
+          'enter_reset_code': 'Enter the reset code sent to',
+          'reset_password': 'Reset Password',
+          'enter_new_password': 'Enter your new password',
+          'reset_now': 'Reset Now',
+
+
+          /////////////////  NEW ////////////////
+          'generate_image_title': 'Generate Image',
+          'prompt_hint': 'Enter a description for the image...',
+          
+          'hide_preview': 'Hide Preview',
+          'empty_prompt_error': 'Please enter a description to generate an image.',
+          'image_generation_failed': 'Failed to generate image. Please try again.',
+          'generic_error': 'An error occurred. Please try again later.',
+
+
+          'generate_ai_video_title': 'Generate AI Video',
+          'enter_exercise_name': 'Enter a description for the video...',
+          
+          'generated_video_preview': 'Generated Video Preview',
+          
+          'prompt_empty_label': 'Please enter a description to generate a video.',
+          'video_init_failed_label': 'Failed to initialize video. Please try again.',
+          'video_generation_failed_label': 'Failed to generate video. Please try again.',
+
+
+          'speech_to_audio_title': 'Speech to Audio',
+          'speech_text_hint': 'Enter text to convert to audio...',
+          'select_language_hint': 'Select a language',
+          'select_speaker_hint': 'Select a speaker',
+          'speed_label': 'Speed:',
+          'generate_audio_button': 'Generate Audio',
+          'generated_audio_preview': 'Generated Audio Preview',
+          
+          'load_languages_speakers_error': 'Failed to load languages and speakers. Please try again.',
+          'empty_text_error': 'Please enter text to generate audio.',
+          'select_language_speaker_error': 'Please select a language and a speaker.',
+          'audio_generation_failed': 'Failed to generate audio. Please try again.',
+
+
+          'generate_from_image_title': 'Generate Video from Image and Audio',
+          
+          'select_image_placeholder': 'No image selected',
+          'hide_image_label': 'Hide Image',
+          'select_audio_placeholder': 'Select Audio',
+          
+          
+          'hide_preview_label': 'Hide Preview',
+          'select_image_audio_error': 'Please select both an image and an audio file.',
+          
+          'video_downloaded_label': 'Video downloaded successfully.',
+          'gallery_save_failed_label': 'Failed to save video to gallery.',
+          'download_failed_label': 'Failed to download video. Please try again.',
+          'Audio files': 'Audio files',
+
+
+
+          'voice_cloning_title': 'Voice Cloning',
+          'enter_prompt_label': 'Enter text for voice cloning...',
+         
+          'cloned_voice_result': 'Cloned Voice Result',
+          'play_button': 'Play',
+          
+          'please_enter_prompt_and_audio': 'Please enter text and select an audio file.',
+          'voice_cloning_failed': 'Failed to clone voice. Please try again.',
+          
+          'English': 'English',
+          'French': 'French',
+          'Arabic': 'Arabic',
+
+
+          'voice_to_voice_title': 'Voice to Voice',
+          'presser_pour_enregistrer': 'Press to Record',
+          'failed_to_fetch_video_avatars': 'Failed to fetch video avatars.',
+          'impossible_de_charger_la_video': 'Unable to load the video.',
+          'permission_microphone_refusee': 'Microphone permission denied.',
+          'echec_initialisation_enregistreur': 'Failed to initialize recorder.',
+          'enregistrement_en_cours': 'Recording in progress...',
+          'echec_enregistrement': 'Failed to start recording.',
+          'enregistrement_termine': 'Recording completed.',
+          'fichier_enregistrement_non_trouve': 'Recording file not found.',
+          'echec_arret_enregistrement': 'Failed to stop recording.',
+          'aucun_enregistrement_disponible': 'No recording available.',
+          'echec_lecture_enregistrement': 'Failed to play recording.',
+          'lecture_enregistrement': 'Playing recording...',
+          'jouer_enregistrement': 'Play recording',
+          'arreter_enregistrement': 'Stop recording',
+          'supprimer_enregistrement': 'Delete recording',
+          'traiter_requete': 'Process request',
+          'reponse_prete': 'Response ready',
+          'reponse_recue': 'Response received successfully.',
+          'echec_generation_reponse': 'Failed to generate response.',
+          'echec_suppression_reponse': 'Failed to delete response.',
+          'echec_suppression_enregistrement': 'Failed to delete recording.',
+          'selectionner_avatar': 'Select avatar',
+          'aucun_avatar_disponible': 'No avatars available.',
+          'lecture_reponse': 'Playing response...',
+          'jouer_reponse': 'Play response',
+          'arreter_reponse': 'Stop response',
+          'supprimer_reponse': 'Delete response',
+          'video_indisponible': 'Video unavailable.',
+
+          'enhance_image_title': 'Enhance Image',
+          'select_image_label': 'Select Image',
+          
+          'enhance_button': 'Enhance',
+          'error_loading_image': 'Error loading enhanced image',
+          
+          'image_downloaded_label': 'Image downloaded successfully.',
+          'enhancement_failed_label': 'Failed to enhance image. Please try again.',
+          'no_image_selected_label': 'Please select an image to enhance.',
+
+
+          "image_permission_denied": "Image access permission denied",
+          "image_selection_failed": "Image selection failed",
+          "permission_required": "Permission required",
+          "please_enable_storage_permission": "Please enable storage permissions in the app settings",
+          "cancel": "Cancel",
+          
+          "video_generation": "Video generation",
+          "speech_to_audio": "Speech to audio",
+          "video_generated_with_image": "Video generated with image",
+          "voice_cloning": "Voice cloning",
+          "voice_query": "Voice query",
+          "image_enhancer": "Image enhancer",
+
+           "no_video_selected": "No video selected",
+            "video_processing_failed": "Video processing failed",
+            "network_error": "Network error",
+            "remove_background_title": "Remove background",
+            "select_video": "Select a video",
+            "process_button": "Process",
+
+            "remove_background": "Remove bg",
+
+            
+    'voice_cloning_success': 'Voice cloning successful',
+    'server_pressure_error': 'Server is under a lot of pressure, please try again!',
+    'cancel_button': 'Cancel',
+   
+    'selected_audio_name': 'Selected audio: {name}',
+  
+
+
+          
+          
 
     }
   };

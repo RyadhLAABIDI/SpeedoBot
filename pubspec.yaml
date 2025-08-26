@@ -2,7 +2,7 @@ name: speedobot
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.0+5
 
 environment:
   sdk: ^3.6.0
@@ -26,6 +26,17 @@ dependencies:
   animations: ^2.0.7
   flutter_secure_storage: ^9.0.0
   shared_preferences: ^2.2.2
+  video_player:    ^2.7.2
+  logger: ^2.0.2+1
+  image_gallery_saver_plus: ^4.0.1
+  dio: ^5.4.0
+  audioplayers: ^5.2.1
+  file_selector: ^1.0.1
+  permission_handler: ^11.3.0
+  dropdown_button2: ^2.3.9
+  flutter_sound: ^9.2.13+1
+  flutter_animate: ^4.3.0
+  device_info_plus: ^9.0.0
   
 dev_dependencies:
     
@@ -40,6 +51,8 @@ flutter:
     - assets/images/
     - assets/svg/
     - assets/flags/
+    - assets/sounds/click.wav
+    - assets/RobotAIloading.gif
 
 flutter_icons:
   android: true

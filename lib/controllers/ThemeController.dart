@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -7,11 +8,11 @@ class ThemeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _loadThemeFromPrefs(); // Charger la préférence de thème au démarrage
+    loadThemeFromPrefs(); // Charger la préférence de thème au démarrage
   }
 
   // Charger la préférence du thème à partir de SharedPreferences
-  _loadThemeFromPrefs() async {
+  Future<void> loadThemeFromPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     isDarkMode.value = prefs.getBool('isDarkMode') ?? false; // Par défaut, thème clair
   }
@@ -20,6 +21,7 @@ class ThemeController extends GetxController {
   void toggleTheme() async {
     isDarkMode.value = !isDarkMode.value;
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isDarkMode', isDarkMode.value); // Sauvegarder le choix du thème
+    await prefs.setBool('isDarkMode', isDarkMode.value); // Sauvegarder le choix du thème
+    Get.changeThemeMode(isDarkMode.value ? ThemeMode.dark : ThemeMode.light);
   }
 }

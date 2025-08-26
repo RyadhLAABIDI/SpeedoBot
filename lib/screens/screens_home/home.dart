@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:speedobot/controllers/ThemeController.dart';
 import 'package:speedobot/controllers/auth_controller.dart';
 import 'package:speedobot/screens/screens_auth/login.dart';
 import 'package:speedobot/screens/screens_home/chat_screen.dart';
 import 'package:speedobot/controllers/TranslationController.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:speedobot/screens/screens_home/RemoveBackgroundScreen.dart';
 
 void main() => runApp(const MegabotApp());
 
@@ -33,7 +35,7 @@ class MegabotApp extends StatelessWidget {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: Color(0xFF3ECAA7),
         unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.white, // Fond blanc en mode clair
+        backgroundColor: Colors.white,
       ),
     );
   }
@@ -45,7 +47,7 @@ class MegabotApp extends StatelessWidget {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: Color(0xFF3ECAA7),
         unselectedItemColor: Colors.grey,
-        backgroundColor: Color(0xFF02111a), // Fond sombre en mode sombre
+        backgroundColor: Color(0xFF02111a),
       ),
     );
   }
@@ -62,46 +64,61 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   int _selectedIndex = 0;
   final AuthController authController = Get.put(AuthController());
   
-  // Déclaration des animations
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
 
-  // Liste des pages
   final List<Widget> _pages = [
-    const HomeContent(),   // Page d'accueil
-    const MainScreen(),    // Page de chat (MainScreen)
-    const SettingsPlaceholder(),  // Page des paramètres
+    const HomeContent(),
+    const MainScreen(),
+    const RemoveBackgroundScreen(),
   ];
 
-  // Méthode de déconnexion
   static void _logout() async {
     await Get.find<AuthController>().logout();
     Get.offAll(() => const AuthScreen());
   }
 
-  // Méthode pour changer la page sélectionnée
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    Get.until((route) => route.isFirst); // Revenir à la première page si nécessaire
+    Get.until((route) => route.isFirst);
   }
 
-  // Méthode pour changer le thème
   void _toggleTheme() {
     Get.changeThemeMode(Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
+  }
+
+  void _navigateToSettings() {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 400),
+        pageBuilder: (context, animation, secondaryAnimation) => SettingsPlaceholder(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOutCubic;
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: FadeTransition(
+              opacity: animation,
+              child: child,
+            ),
+          );
+        },
+      ),
+    );
   }
 
   @override
   void initState() {
     super.initState();
-    
-    // Initialisation du contrôleur d'animation et de l'animation de mise à l'échelle
     _animationController = AnimationController(
-      vsync: this,  // "this" fait référence au TickerProvider (avec TickerProviderStateMixin)
+      vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-
     _scaleAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.easeOutBack),
     );
@@ -109,79 +126,48 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    // Dispose des contrôleurs d'animation pour éviter les fuites de mémoire
     _animationController.dispose();
     super.dispose();
   }
 
- PreferredSizeWidget? _buildAppBar() {
-  if (_selectedIndex == 0) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
-      leadingWidth: 112, // 1. Définir une largeur fixe pour le leading
-      leading: Row(
-        children: [
-          // Cette partie est supprimée : Menu de langue
-          // SizedBox( // 2. Contraindre la largeur de chaque élément
-          //   width: 56,
-          //   child: PopupMenuButton<String>(
-          //     padding: EdgeInsets.zero,
-          //     icon: Icon(
-          //       Icons.language,
-          //       color: Color(0xFF3ECAA7),
-          //       size: 24, // Taille fixe pour plus de cohérence
-          //     ),
-          //     onSelected: (String languageCode) async {
-          //       Locale newLocale = Locale(languageCode);
-          //       await Get.find<LanguageController>().changeLanguage(newLocale);
-          //     },
-          //     itemBuilder: (BuildContext context) => [
-          //       const PopupMenuItem(value: 'en', child: Text('English')),
-          //       const PopupMenuItem(value: 'fr', child: Text('Français')),
-          //       const PopupMenuItem(value: 'ar', child: Text('العربية')),
-          //     ],
-          //   ),
-          // ),
-          // Cette partie est supprimée : Bouton thème
-          // SizedBox(
-          //   width: 56,
-          //   child: IconButton(
-          //     icon: Icon(
-          //       Get.isDarkMode ? Icons.light_mode : Icons.dark_mode,
-          //       color: Color(0xFF3ECAA7),
-          //       size: 24,
-          //     ),
-          //     onPressed: _toggleTheme,
-          //   ),
-          // ),
-        ],
-      ),
-      title: Image.asset(
-        'assets/images/logo.png',
-        width: 120,
-        fit: BoxFit.contain,
-      ),
-      actions: [
-        IconButton(
-          icon: Icon(Icons.logout, color: Color(0xFF3ECAA7)),
-          onPressed: _logout,
+  PreferredSizeWidget? _buildAppBar() {
+    if (_selectedIndex == 0) {
+      return AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        leadingWidth: 56,
+        leading: IconButton(
+          icon: Icon(
+            Icons.settings_rounded,
+            color: Color(0xFF3ECAA7),
+            size: 24,
+          ),
+          onPressed: _navigateToSettings,
         ),
-      ],
-    );
+        title: Image.asset(
+          'assets/images/logo.png',
+          width: 120,
+          fit: BoxFit.contain,
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout, color: Color(0xFF3ECAA7)),
+            onPressed: _logout,
+          ),
+        ],
+      );
+    }
+    return null;
   }
-  return null;
-}
 
-  // Construction du BottomNavigationBar
   BottomNavigationBar _buildModernNavBar(BuildContext context) {
     final theme = Theme.of(context);
     return BottomNavigationBar(
       items: [
         _buildAnimatedNavItem(0, Icons.home_outlined, Icons.home_rounded),
         _buildAnimatedNavItem(1, Icons.forum_outlined, Icons.forum_rounded),
-        _buildAnimatedNavItem(2, Icons.settings_outlined, Icons.settings_rounded),
+        _buildAnimatedNavItem(2, Icons.video_call_outlined, Icons.video_call_rounded),
       ],
       currentIndex: _selectedIndex,
       selectedItemColor: const Color(0xFF3ECAA7),
@@ -260,20 +246,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           );
         },
       ),
-      label: ['home'.tr, 'chat'.tr, 'settings'.tr][index],
+      label: ['home'.tr, 'chat'.tr, 'remove_background'.tr][index],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(), // L'AppBar sera affiché ou non en fonction de l'index
+      appBar: _buildAppBar(),
       body: _pages[_selectedIndex],
       bottomNavigationBar: _buildModernNavBar(context),
     );
   }
 }
-
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
@@ -301,11 +286,6 @@ class HomeContent extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
 
 class _HeaderSection extends StatefulWidget {
   const _HeaderSection();
@@ -672,7 +652,6 @@ class _FeatureTile extends StatelessWidget {
   }
 }
 
-
 class SettingsPlaceholder extends StatelessWidget {
   const SettingsPlaceholder({super.key});
 
@@ -681,6 +660,20 @@ class SettingsPlaceholder extends StatelessWidget {
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Color(0xFF3ECAA7),
+            size: 24,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Container(
         decoration: BoxDecoration(
           color: isDarkMode ? null : Colors.white,
@@ -717,7 +710,6 @@ class SettingsPlaceholder extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 
-                // Section Thème
                 _buildThemeSection(context, isDarkMode),
                 _buildSectionDescription(
                   context,
@@ -728,7 +720,6 @@ class SettingsPlaceholder extends StatelessWidget {
                 
                 const SizedBox(height: 30),
                 
-                // Section Langue
                 _buildLanguageSection(context, isDarkMode),
                 _buildSectionDescription(
                   context,
@@ -745,6 +736,8 @@ class SettingsPlaceholder extends StatelessWidget {
   }
 
   Widget _buildThemeSection(BuildContext context, bool isDarkMode) {
+    final themeController = Get.find<ThemeController>();
+
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(
@@ -806,9 +799,7 @@ class SettingsPlaceholder extends StatelessWidget {
               activeTrackColor: const Color(0xFF3ECAA7).withOpacity(0.4),
               value: isDarkMode,
               onChanged: (value) {
-                Get.changeThemeMode(
-                  value ? ThemeMode.dark : ThemeMode.light,
-                );
+                themeController.toggleTheme();
               },
             ),
           ),
@@ -926,7 +917,6 @@ class SettingsPlaceholder extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           image: DecorationImage(
-            // Correction du chemin d'accès ici
             image: AssetImage('assets/flags/${code}_flag.png'),
             fit: BoxFit.cover,
           ),
@@ -967,6 +957,7 @@ class SettingsPlaceholder extends StatelessWidget {
     }
   }
 }
+
 List<ServiceItem> serviceItems = [
   ServiceItem(
     icon: 'assets/images/search.svg',
